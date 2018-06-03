@@ -7,12 +7,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using PopupSearchBox;
 
 namespace NavigationTest
 {
     public partial class Form1 : Form
     {
-            MyNavigator myNavigator = new MyNavigator();
+        SearchBox popupSearchBox = new SearchBox();
+
         public Form1()
         {
             InitializeComponent();
@@ -23,12 +25,12 @@ namespace NavigationTest
 
         private void Form1_Click(object sender, EventArgs e)
         {
-            myNavigator.Visible = false;
+            popupSearchBox.Visible = false;
         }
 
         private void TextBox1_LostFocus1(object sender, EventArgs e)
         {
-            myNavigator.Visible = false;
+            popupSearchBox.Visible = false;
         }
 
         private void TextBox1_LostFocus(object sender, EventArgs e)
@@ -37,13 +39,13 @@ namespace NavigationTest
 
         private void textBox1_KeyUp(object sender, KeyEventArgs e)
         {
-            if(!myNavigator.Visible)
+            if(!popupSearchBox.Visible)
             {
-                myNavigator.Visible = true;
+                popupSearchBox.Visible = true;
             }
 
-            myNavigator.Clear();
-            myNavigator.AddItem("Search " + textBox1.Text);
+            popupSearchBox.Clear();
+            popupSearchBox.AddItem("Search " + textBox1.Text);
         }
 
         private void listView1_SelectedIndexChanged(object sender, EventArgs e)
@@ -59,31 +61,31 @@ namespace NavigationTest
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            myNavigator.Location = new Point(textBox1.Location.X, textBox1.Location.Y + textBox1.Height + 3);
-            myNavigator.Visible = false;
-            myNavigator.Width = textBox1.Width;
+            popupSearchBox.Location = new Point(textBox1.Location.X, textBox1.Location.Y + textBox1.Height + 3);
+            popupSearchBox.Visible = false;
+            popupSearchBox.Width = textBox1.Width;
 
             // Must add the navigator to the Form itself.
-            this.Controls.Add(myNavigator);
+            this.Controls.Add(popupSearchBox);
 
             // Add to the contain first then bring to front, or it will not have effect.
-            myNavigator.BringToFront();
+            popupSearchBox.BringToFront();
         }
 
         private void button1_Click_1(object sender, EventArgs e)
         {
-            myNavigator.Clear();
-            myNavigator.AddSplitter("MENU ───────────────");
-            myNavigator.AddItem("Test --> test --> tset");
-            myNavigator.AddItem("Test --> test --> tset");
-            myNavigator.AddItem("Test --> test --> tset");
-            myNavigator.AddItem("Test --> test --> tset");
-            myNavigator.AddItem("Test --> test --> tset");
-            myNavigator.AddItem("Test --> test --> tset");
-            myNavigator.AddItem("Test --> test --> tset");
-            myNavigator.AddSplitter("MORE ───────────────");
-            myNavigator.AddItem("Search on Baidu");
-            myNavigator.Visible = true;
+            popupSearchBox.Clear();
+            popupSearchBox.AddSplitter("MENU ───────────────");
+            popupSearchBox.AddItem("Test --> test --> tset");
+            popupSearchBox.AddItem("Test --> test --> tset");
+            popupSearchBox.AddItem("Test --> test --> tset");
+            popupSearchBox.AddItem("Test --> test --> tset");
+            popupSearchBox.AddItem("Test --> test --> tset");
+            popupSearchBox.AddItem("Test --> test --> tset");
+            popupSearchBox.AddItem("Test --> test --> tset");
+            popupSearchBox.AddSplitter("MORE ───────────────");
+            popupSearchBox.AddItem("Search on Baidu");
+            popupSearchBox.Visible = true;
         }
 
 

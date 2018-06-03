@@ -1,6 +1,6 @@
-﻿namespace NavigationTest
+﻿namespace PopupSearchBox
 {
-    partial class MyNavigator
+    partial class SearchBox
     {
         /// <summary> 
         /// 必需的设计器变量。

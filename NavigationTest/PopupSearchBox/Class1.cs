@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace NavigationTest
+namespace PopupSearchBox
 {
-    class CustomLabel
+    public class Class1
     {
     }
 }

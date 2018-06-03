@@ -9,11 +9,11 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Xml;
 
-namespace NavigationTest
+namespace PopupSearchBox
 {
-    public partial class MyNavigator : UserControl
+    public partial class SearchBox : UserControl
     {
-        public MyNavigator()
+        public SearchBox()
         {
             InitializeComponent();
             this.BackColor = Color.AliceBlue;
@@ -54,6 +54,8 @@ namespace NavigationTest
             label.BackColor = Color.AliceBlue;
             label.Location = new Point(0, 30 * itemCount);
             label.TextAlign = ContentAlignment.MiddleLeft;
+            label.ForeColor = Color.Gray;
+            label.Font = new Font(label.Font.FontFamily, 12f);
             this.Controls.Add(label);
             itemCount++;
             this.Height = 30 * itemCount + 10;
